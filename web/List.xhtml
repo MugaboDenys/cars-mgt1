@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+          <h:link value="Go Back" outcome="carRegistrationForm.xhtml"/>
+        <h:dataTable border="2" value="#{CarCrud.getall()}" var="cars">
+            <h:column>
+                <f:facet name="header">Plate Number</f:facet>
+                #{cars.plateNo}
+            </h:column>
+            
+              <h:column>
+                <f:facet name="header">Model</f:facet>
+                #{cars.model}
+            </h:column>
+            
+              <h:column>
+                <f:facet name="header">Institution</f:facet>
+                #{cars.institution}
+            </h:column>
+            
+              <h:column>
+                <f:facet name="header">Manufacturing Year</f:facet>
+                #{cars.manufacturingyear}
+            </h:column>
+            
+            
+              <h:column>
+                <f:facet name="header">Purchase Cost</f:facet>
+                #{cars.purchaseCost}
+            </h:column>
+             <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:form>
+                    <h:commandLink value="Update" action="#{CarCrud.update(cars)}"/>
+                    <h:commandLink value="Delete" action="#{CarCrud.Delete(cars)}"/>
+                </h:form>
+             </h:column>
+            
+        </h:dataTable>
+    </body>
+</html>

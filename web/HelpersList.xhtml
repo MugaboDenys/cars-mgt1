@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+    
+        <h:dataTable border="2" value="#{companyCrud.findAll()}" var="comp">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                #{comp.id}
+            </h:column>
+            
+              <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{comp.name}
+            </h:column>
+            
+              <h:column>
+                <f:facet name="header">Age</f:facet>
+                #{comp.age}
+            </h:column>
+            
+              <h:column>
+                <f:facet name="header">Gender</f:facet>
+                #{comp.gender}
+            </h:column>
+            
+              <h:column>
+                <f:facet name="header">Category</f:facet>
+                #{comp.category}
+            </h:column>
+            
+                <h:column>
+                <f:facet name="header">Amount</f:facet>
+                #{comp.amount}
+            </h:column>
+            
+             <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:form>
+                    <h:inputHidden value="#{companyCrud.action}"/>
+                    <h:commandLink value="#{companyCrud.action}" action="#{companyCrud.navigate()}"/>
+  
+                </h:form>
+             </h:column>
+            
+        </h:dataTable>
+    </body>
+</html>
